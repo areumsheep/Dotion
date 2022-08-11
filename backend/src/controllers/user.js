@@ -3,6 +3,11 @@ import { init } from '../config/database';
 const conn = init();
 
 export const getUserList = async (req, res) => {
+  // #swagger.tags = ['User']
+
+  /* #swagger.responses[200] = { 
+      schema: { "$ref": "#/definitions/User" },
+      description: "User registered successfully." } */
   const getUsersSQL = `SELECT * FROM users`;
   conn.query(getUsersSQL, (err, rows) => {
     if (err) {
@@ -18,7 +23,12 @@ export const getUserList = async (req, res) => {
 };
 
 export const getUserByToken = async (req, res) => {
-  const { token } = req.body;
+  // #swagger.tags = ['User']
+
+  /* #swagger.responses[200] = { 
+      schema: { "$ref": "#/definitions/User" },
+      description: "User registered successfully." } */
+  const token = req.params.token;
   const getUserSQL = `SELECT * FROM users WHERE token LIKE ?`;
   conn.query(getUserSQL, token, (err, rows) => {
     if (err) {
@@ -34,6 +44,14 @@ export const getUserByToken = async (req, res) => {
 };
 
 export const postUser = async (req, res) => {
+  // #swagger.tags = ['User']
+
+  /*	#swagger.parameters['obj'] = {
+      in: 'body',
+      description: 'User information.',
+      required: true,
+      schema: { $ref: "#/definitions/User" }
+  } */
   const { email, name, profile_img, token } = req.body;
   const getUserSQL = `SELECT * FROM users WHERE email = ?`;
   conn.query(getUserSQL, email, (err, rows) => {
