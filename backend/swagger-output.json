@@ -10,7 +10,11 @@
   "tags": [
     {
       "name": "User",
-      "description": "Endpoints"
+      "description": "유저 데이터 관련 API"
+    },
+    {
+      "name": "Notion",
+      "description": "Notion 데이터 관련 API"
     }
   ],
   "schemes": [
@@ -108,6 +112,144 @@
           }
         }
       }
+    },
+    "/api/calendars": {
+      "get": {
+        "tags": [
+          "Notion"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "date",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Notion page searched successfully.",
+            "schema": {
+              "$ref": "#/definitions/Notion"
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/tags": {
+      "get": {
+        "tags": [
+          "Notion"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Notion tag searched successfully.",
+            "schema": {
+              "$ref": "#/definitions/Tag"
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/calendar": {
+      "post": {
+        "tags": [
+          "Notion"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Notion information.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Notion"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Notion page created successfully.",
+            "schema": {
+              "$ref": "#/definitions/Notion"
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Notion"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Notion information.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Notion"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Notion page updated successfully.",
+            "schema": {
+              "$ref": "#/definitions/Notion"
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Notion"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "schema": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Notion page deleted successfully.",
+            "schema": {
+              "$ref": "#/definitions/Notion"
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -129,6 +271,56 @@
         "token": {
           "type": "string",
           "example": "adnsflkadnfsklsnafdkl"
+        }
+      }
+    },
+    "Notion": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "1d2580f8-f0a2-4a03"
+        },
+        "startDate": {
+          "type": "string",
+          "example": "2022-06-20"
+        },
+        "endDate": {
+          "type": "string",
+          "example": "2022-06-20"
+        },
+        "done": {
+          "type": "boolean",
+          "example": false
+        },
+        "title": {
+          "type": "string",
+          "example": "환경변수 설정"
+        },
+        "description": {
+          "type": "string",
+          "example": "리액트 네이티브 환경변수 설정 방법 공부하기"
+        },
+        "tagName": {
+          "type": "string",
+          "example": "온라인 회의"
+        },
+        "tagColor": {
+          "type": "string",
+          "example": "yellow"
+        }
+      }
+    },
+    "Tag": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "온라인 회의"
+        },
+        "color": {
+          "type": "string",
+          "example": "yellow"
         }
       }
     }

@@ -15,7 +15,11 @@ const doc = {
   tags: [
     {
       name: 'User',
-      description: 'Endpoints',
+      description: '유저 데이터 관련 API',
+    },
+    {
+      name: 'Notion',
+      description: 'Notion 데이터 관련 API',
     },
   ],
   securityDefinitions: {
@@ -32,6 +36,20 @@ const doc = {
       name: '홍길동',
       profile_img: 'https://www.google.com',
       token: 'adnsflkadnfsklsnafdkl',
+    },
+    Notion: {
+      id: '1d2580f8-f0a2-4a03',
+      startDate: '2022-06-20',
+      endDate: '2022-06-20',
+      done: false,
+      title: '환경변수 설정',
+      description: '리액트 네이티브 환경변수 설정 방법 공부하기',
+      tagName: '온라인 회의',
+      tagColor: 'yellow',
+    },
+    Tag: {
+      name: '온라인 회의',
+      color: 'yellow',
     },
   },
 };
