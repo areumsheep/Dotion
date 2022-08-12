@@ -14,6 +14,10 @@ const GlobalStyles = createGlobalStyle`
  a {
   text-decoration: none;
  }
+
+ h1 {
+   font-weight: 900;
+ }
 `;
 
 export default GlobalStyles;
