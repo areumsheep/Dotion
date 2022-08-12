@@ -4,8 +4,8 @@ const mixins = {
     align-items: ${align};
     justify-content: ${justify};
   `,
-  boxShadow: (alpha = 0.3) => `
-    box-shadow: rgba(0, 0, 0, ${alpha}) 0px 5px 4px;
+  boxShadow: () => `
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   `,
   noScrollBar: () => `
     -ms-overflow-style: none; /* IE and Edge */
