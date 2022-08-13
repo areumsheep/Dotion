@@ -1,9 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import Google from '@/assets/image/google.png';
 import Input from '@/components/@common/Input';
 
 const LoginPage = () => {
+  const onLoginClick = () => {
+    alert('아직 지원되지 않는 기능입니다. 구글 로그인을 사용해주세요.');
+  };
   return (
     <Wrapper>
       <Form>
@@ -18,7 +22,9 @@ const LoginPage = () => {
             <img src={Google} alt="구글 로고" />
             구글 로그인
           </GoogleLoginButton>
-          <Button type="submit">로그인</Button>
+          <Button type="submit" onClick={onLoginClick}>
+            로그인
+          </Button>
         </div>
       </Form>
     </Wrapper>
