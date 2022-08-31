@@ -24,6 +24,7 @@ const Wrapper = styled.div`
     color: ${({ theme }) => theme.color.font.secondary};
     text-align: left;
     font-size: 13px;
+    margin-bottom: 2px;
   }
   input {
     background-color: #ecedef;

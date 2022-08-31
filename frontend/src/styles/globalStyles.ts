@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
+import '@/assets/css/font.css';
 
 const GlobalStyles = createGlobalStyle`
  ${reset}
@@ -7,14 +8,18 @@ const GlobalStyles = createGlobalStyle`
    box-sizing:border-box;
    outline:none;
    border:none;
+  }
+  #root, html, body {
+    height: 100%;
+    font-family: 'Pretendard', sans-serif;
  }
- #root, html, body {
-   height: 100%;
- }
+ input, textarea, button {
+  font-family: inherit
+}
+
  a {
   text-decoration: none;
  }
-
  h1 {
    font-weight: 900;
  }

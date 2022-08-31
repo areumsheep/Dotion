@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import Google from '@/assets/image/google.png';
 import Input from '@/components/@common/Input';
 
+const onLoginClick = () => {
+  alert('아직 지원되지 않는 기능입니다. 구글 로그인을 사용해주세요.');
+};
 const LoginPage = () => {
-  const onLoginClick = () => {
-    alert('아직 지원되지 않는 기능입니다. 구글 로그인을 사용해주세요.');
-  };
   return (
     <Wrapper>
       <Form>
@@ -33,12 +33,7 @@ const LoginPage = () => {
 
 export default LoginPage;
 
-const Wrapper = styled.main`
-  display: flex;
-  height: 100%;
-`;
-
-const Form = styled.form`
+const Wrapper = styled.div`
   display: grid;
   align-items: center;
   ${({ theme }) => theme.mixins.boxShadow()};
@@ -49,11 +44,14 @@ const Form = styled.form`
   border-radius: 20px;
   padding: 70px 50px;
   text-align: center;
+`;
 
+const Form = styled.form`
   h1 {
     color: ${({ theme }) => theme.color.font.special};
     font-size: 45px;
     letter-spacing: -1px;
+    margin-bottom: 30px;
   }
   div > div {
     margin-bottom: 20px;
